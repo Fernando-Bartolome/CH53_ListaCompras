@@ -135,3 +135,43 @@ window.addEventListener("load", function(event){
      productosTotal.innerText = totalEnProductos;
      contadorProductos.innerText = cont;
 });//window.addEventListener load
+
+//Agregar la funcionalidad del botón Limpiar todo 
+//Resumen
+//Tabla
+//Campos
+//Alerta
+//localStorage
+
+const btnClear = document.getElementById("btnClear");
+
+btnClear.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    // Limpiar tabla
+    cuerpoTabla.innerHTML = "";
+
+    // Resetear valores y contadores
+    txtName.value = "";
+    txtNumber.value = "";
+    cont = 0;
+    costoTotal = 0;
+    totalEnProductos = 0;
+    datos = [];
+
+    // Limpiar almacenamiento local
+    localStorage.removeItem("datos");
+    localStorage.removeItem("resumen");
+
+    // Limpiar visualización del resumen
+    contadorProductos.innerText = "0";
+    productosTotal.innerText = "0";
+    precioTotal.innerText = "$0";
+
+    // Ocultar alertas y restablecer estilos
+    alertValidacionesTexto.innerHTML = "";
+    alertValidaciones.style.display = "none";
+    txtName.style.border = "";
+    txtNumber.style.border = "";
+
+});
